@@ -75,7 +75,7 @@ public class EmailSender {
         output.write(buffer, 0, buffer.length);
         output.flush();
 
-        Thread.sleep(500);
+        Thread.sleep(450);
         if(input.available() > 0) {
             len = input.read(response);
             System.out.write(response, len, len);
