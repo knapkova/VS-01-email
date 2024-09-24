@@ -3,7 +3,7 @@ package utb.fai;
 public class App {
 
     public static void main(String[] args) {
-        // TODO: Implement input parameter processing
+        // TODO: Implement input  processing
         
         try {
             EmailSender sender = new EmailSender("smtp.utb.cz", 25);

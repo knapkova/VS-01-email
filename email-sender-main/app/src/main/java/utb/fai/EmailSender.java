@@ -23,39 +23,63 @@ public class EmailSender {
      */
     public void send(String from, String to, String subject, String text) throws IOException {
 
-        byte[] responseBuffer = new byte[1024];
+        byte[] response = new byte[1024];
         int len;
 
-
         String message = String.format("EHLO %s\r\n", from);
-        output.write(message.getBytes());
+        buffer = message.getBytes();
+        output.write(buffer, 0, buffer.length);
         output.flush();
-        len = input.read(responseBuffer);
-        System.out.write(responseBuffer, 0, len);
+
+        Thread.sleep(500);
+        if(input.available() > 0) {
+            len = input.read(response);
+            System.out.write(response, len, len);
+        }
 
         message = String.format("MAIL FROM:<%s>\r\n", from);
-        output.write(message.getBytes());
+        buffer = message.getBytes();
+        output.write(buffer, 0, buffer.length);
         output.flush();
-        len = input.read(responseBuffer);
-        System.out.write(responseBuffer, 0, len);
+
+        Thread.sleep(500);
+        if(input.available() > 0) {
+            len = input.read(response);
+            System.out.write(response, len, len);
+        }
 
         message = String.format("RCPT TO:<%s>\r\n", to);
-        output.write(message.getBytes());
+        buffer = message.getBytes();
+        output.write(buffer, 0, buffer.length);
         output.flush();
-        len = input.read(responseBuffer);
-        System.out.write(responseBuffer, 0, len);
+
+        Thread.sleep(500);
+        if(input.available() > 0) {
+            len = input.read(response);
+            System.out.write(response, len, len);
+        }
 
         message = "DATA\r\n";
-        output.write(message.getBytes());
+        buffer = message.getBytes();
+        output.write(buffer, 0, buffer.length);
         output.flush();
-        len = input.read(responseBuffer);
-        System.out.write(responseBuffer, 0, len);
+
+        Thread.sleep(500);
+        if(input.available() > 0) {
+            len = input.read(response);
+            System.out.write(response, len, len);
+        }
 
         message = String.format("Subject: %s\r\n\r\n%s\r\n.\r\n", subject, text);
-        output.write(message.getBytes());
+        buffer = message.getBytes();
+        output.write(buffer, 0, buffer.length);
         output.flush();
-        len = input.read(responseBuffer);
-        System.out.write(responseBuffer, 0, len);
+
+        Thread.sleep(500);
+        if(input.available() > 0) {
+            len = input.read(response);
+            System.out.write(response, len, len);
+        }
 
     }
     /*
@@ -63,9 +87,14 @@ public class EmailSender {
      */
     public void close() {
         message = "QUIT\r\n";
-        output.write(message.getBytes());
+        buffer = message.getBytes();
+        output.write(buffer, 0, buffer.length);
         output.flush();
-        len = input.read(responseBuffer);
-        System.out.write(responseBuffer, 0, len);
+
+        Thread.sleep(500);
+        if(input.available() > 0) {
+            len = input.read(response);
+            System.out.write(response, len, len);
+        }
     }
 }
