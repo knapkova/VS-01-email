@@ -7,7 +7,7 @@ public class App {
         
         try {
             EmailSender sender = new EmailSender("smtp.utb.cz", 25);
-            sender.send("you@utb.cz", "you@utb.cz", "Email from Java", "Funguje to?\nSnad...");
+            sender.send("t_knapkova@utb.cz", "t_knapkova@utb.cz", "Email from Java", "Funguje to?\nSnad...");
             sender.close();
         } catch (Exception e) {
             e.printStackTrace();
