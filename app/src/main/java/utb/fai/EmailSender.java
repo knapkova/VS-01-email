@@ -23,8 +23,6 @@ public class EmailSender {
     public void send(String from, String to, String subject, String text) throws IOException {
 
 
-        }
-
     }
     /*
      * Sends QUIT and closes the socket
