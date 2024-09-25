@@ -10,7 +10,7 @@ public class EmailSender {
     private byte[] response = new byte[1024];
     private int len;
     private Socket socket;
-    private String message
+    private String message;
     /*
      * Constructor opens Socket to host/port. If the Socket throws an exception
      * during opening,
@@ -46,7 +46,7 @@ public class EmailSender {
         output.write(buffer, 0, buffer.length);
         output.flush();
 
-        Thread.sleep(500);
+        Thread.sleep(1000);
         if(input.available() > 0) {
             len = input.read(response);
             System.out.write(response, len, len);
@@ -57,7 +57,7 @@ public class EmailSender {
         output.write(buffer, 0, buffer.length);
         output.flush();
 
-        Thread.sleep(500);
+        Thread.sleep(1000);
         if(input.available() > 0) {
             len = input.read(response);
             System.out.write(response, len, len);
@@ -68,7 +68,7 @@ public class EmailSender {
         output.write(buffer, 0, buffer.length);
         output.flush();
 
-        Thread.sleep(500);
+        Thread.sleep(1000);
         if(input.available() > 0) {
             len = input.read(response);
             System.out.write(response, len, len);
@@ -79,7 +79,7 @@ public class EmailSender {
         output.write(buffer, 0, buffer.length);
         output.flush();
 
-        Thread.sleep(450);
+        Thread.sleep(1000);
         if(input.available() > 0) {
             len = input.read(response);
             System.out.write(response, len, len);
@@ -95,7 +95,7 @@ public class EmailSender {
         output.write(buffer, 0, buffer.length);
         output.flush();
 
-        Thread.sleep(500);
+        Thread.sleep(1000);
         if(input.available() > 0) {
             len = input.read(response);
             System.out.write(response, len, len);
