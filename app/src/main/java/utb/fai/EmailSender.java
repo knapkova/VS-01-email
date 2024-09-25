@@ -10,6 +10,7 @@ public class EmailSender {
     private byte[] response = new byte[1024];
     private int len;
     private Socket socket;
+    private String message
     /*
      * Constructor opens Socket to host/port. If the Socket throws an exception
      * during opening,
