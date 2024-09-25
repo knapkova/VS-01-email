@@ -7,16 +7,16 @@ public class EmailSender {
     private byte[] buffer;
     private OutputStream output;
     private InputStream input;
-    private String message;
     private byte[] response = new byte[1024];
     private int len;
+    private Socket socket;
     /*
      * Constructor opens Socket to host/port. If the Socket throws an exception
      * during opening,
      * the exception is not handled in the constructor.
      */
     public EmailSender(String host, int port) throws UnknownHostException, IOException {
-        Socket socket = new Socket(host, port);
+        socket = new Socket(host, port);
         input = socket.getInputStream();
         output = socket.getOutputStream();
     }
