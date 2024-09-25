@@ -29,7 +29,10 @@ public class EmailSender {
      * handled by this method.
      */
     public void send(String from, String to, String subject, String text) throws IOException {
-
+        String message = String.format("EHLO %s\r\n", from);
+        buffer = message.getBytes();
+        output.write(buffer, 0, buffer.length);
+        output.flush();
 
     }
     /*
